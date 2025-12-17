@@ -1,124 +1,239 @@
-<section id="pricing" class="ensapo-pricing" aria-labelledby="pricing-title">
-  <style>
-    .ensapo-pricing { padding: 64px 20px; background: #ffffff; }
-    .ensapo-wrap { max-width: 1080px; margin: 0 auto; }
-    .ensapo-kicker { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
-    .ensapo-title { font-size: 32px; line-height: 1.25; margin: 10px 0 12px; }
-    .ensapo-lead { font-size: 16px; line-height: 1.8; margin: 0 0 28px; opacity: .9; }
-    .ensapo-grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
-    .ensapo-card { grid-column: span 12; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; padding: 22px; box-shadow: 0 6px 20px rgba(0,0,0,.04); }
-    @media (min-width: 860px) {
-      .ensapo-card { grid-column: span 4; }
-    }
-    .ensapo-badge { display: inline-block; font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,.05); }
-    .ensapo-plan { font-size: 18px; margin: 12px 0 6px; }
-    .ensapo-price { font-size: 26px; margin: 0 0 6px; }
-    .ensapo-price small { font-size: 14px; opacity: .8; }
-    .ensapo-note { font-size: 13px; line-height: 1.75; opacity: .85; margin: 10px 0 0; }
-    .ensapo-list { margin: 14px 0 0; padding-left: 18px; line-height: 1.8; }
-    .ensapo-divider { height: 1px; background: rgba(0,0,0,.08); margin: 18px 0; }
-    .ensapo-foot { margin-top: 18px; display: grid; gap: 14px; grid-template-columns: 1fr; align-items: center; }
-    @media (min-width: 860px) {
-      .ensapo-foot { grid-template-columns: 1.2fr .8fr; }
-    }
-    .ensapo-commit { border-radius: 18px; padding: 18px; background: rgba(0,0,0,.03); }
-    .ensapo-commit h3 { margin: 0 0 6px; font-size: 16px; }
-    .ensapo-commit p { margin: 0; font-size: 14px; line-height: 1.9; opacity: .9; }
-    .ensapo-cta { text-align: left; }
-    .ensapo-btn { display: inline-block; padding: 12px 16px; border-radius: 14px; text-decoration: none; font-weight: 700; border: 1px solid rgba(0,0,0,.12); }
-    .ensapo-btn-primary { background: #111111; color: #ffffff; border-color: #111111; }
-    .ensapo-subcta { margin: 10px 0 0; font-size: 13px; opacity: .8; line-height: 1.7; }
-    .ensapo-disclaimer { margin-top: 18px; font-size: 12px; line-height: 1.8; opacity: .75; }
-  </style>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>エンサポ｜特典会運営支援</title>
 
-  <div class="ensapo-wrap">
-    <div class="ensapo-kicker">Pricing</div>
-    <h2 id="pricing-title" class="ensapo-title">料金は「最低ライン」を明確に。</h2>
-    <p class="ensapo-lead">
-      エンサポは、特典会支援に特化したシンプルな料金設計です。<br>
-      <strong>まずは“お手軽に試せる”最低料金</strong>を提示し、無料相談で規模・拘束時間・体制に合わせて最適化します。
+<style>
+:root{
+  --orange:#ff8a00;
+  --yellow:#ffd84d;
+  --dark:#111;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
+  color:var(--dark);
+  background:#fff;
+  line-height:1.8;
+}
+
+/* 共通 */
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.section{padding:80px 0;}
+h1,h2,h3{line-height:1.3;margin:0 0 12px;}
+h2{font-size:32px;}
+p{margin:0 0 12px;}
+a{text-decoration:none;}
+
+/* ヘッダー */
+header{
+  position:sticky;top:0;z-index:10;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+header .container{
+  display:flex;justify-content:space-between;align-items:center;
+  height:64px;
+}
+nav a{margin-left:16px;color:#333;font-weight:600;}
+
+/* ===== KV ===== */
+.kv{
+  position:relative;
+  height:85vh;
+  min-height:520px;
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("kv.jpg") center/cover no-repeat;
+  color:#fff;
+  display:flex;
+  align-items:center;
+}
+.kv h1{font-size:46px;}
+.kv p{font-size:18px;max-width:520px;}
+.kv .btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 20px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--orange),var(--yellow));
+  color:#000;
+  font-weight:800;
+}
+
+/* ===== 特徴 ===== */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+.feature{
+  background:#fff7e6;
+  border-radius:18px;
+  padding:22px;
+}
+.feature h3{font-size:20px;color:var(--orange);}
+
+/* ===== 料金 ===== */
+.pricing{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+.plan{
+  border:2px solid var(--orange);
+  border-radius:22px;
+  padding:26px;
+}
+.plan h3{color:var(--orange);}
+.price{
+  font-size:28px;
+  font-weight:900;
+  margin:12px 0;
+}
+
+/* ===== FAQ ===== */
+details{
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:14px 18px;
+  margin-bottom:12px;
+}
+summary{cursor:pointer;font-weight:700;}
+
+/* ===== CTA ===== */
+.cta{
+  background:linear-gradient(135deg,var(--orange),var(--yellow));
+  color:#000;
+  text-align:center;
+}
+.cta a{
+  display:inline-block;
+  margin-top:14px;
+  padding:14px 22px;
+  border-radius:999px;
+  background:#000;
+  color:#fff;
+  font-weight:800;
+}
+
+/* フッター */
+footer{
+  background:#111;
+  color:#aaa;
+  font-size:12px;
+  padding:24px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <strong>エンサポ</strong>
+    <nav>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">無料相談</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== KV ===== -->
+<section class="kv">
+  <div class="container">
+    <h1>特典会運営を、<br>もっと安く、もっと楽に。</h1>
+    <p>
+      スポットから継続パートナー、導入・改善コンサルまで。<br>
+      エンサポは「人材コストの収益改善」にコミットします。
     </p>
-
-    <div class="ensapo-grid" role="list">
-      <!-- Spot -->
-      <article class="ensapo-card" role="listitem">
-        <span class="ensapo-badge">まず一度頼んでみたい方向け</span>
-        <h3 class="ensapo-plan">スポットプラン</h3>
-        <p class="ensapo-price">
-          最低 6,000円〜 <small>/ 人</small>
-        </p>
-        <p class="ensapo-note">人件費・交通費・手数料すべて込み</p>
-        <div class="ensapo-divider"></div>
-        <ul class="ensapo-list">
-          <li>特典会当日の人員手配・運営サポート</li>
-          <li>「今回だけ」「人手が足りない時だけ」に対応</li>
-          <li>小規模案件から利用可能</li>
-        </ul>
-        <p class="ensapo-disclaimer">
-          ※拘束時間・役割・追加対応（特急/地方等）により変動します。
-        </p>
-      </article>
-
-      <!-- Partner -->
-      <article class="ensapo-card" role="listitem">
-        <span class="ensapo-badge">継続運用・複数案件を安定させたい方向け</span>
-        <h3 class="ensapo-plan">パートナープラン</h3>
-        <p class="ensapo-price">
-          最低 5,000円〜 <small>/ 人</small>
-        </p>
-        <p class="ensapo-note">人件費・交通費・手数料すべて込み</p>
-        <div class="ensapo-divider"></div>
-        <ul class="ensapo-list">
-          <li>人員募集・調整・割当・勤怠・報告の一元管理</li>
-          <li>管理工数の外部化で、現場負荷を継続的に削減</li>
-          <li>品質を揃え、運営を“回る形”に整備</li>
-        </ul>
-        <p class="ensapo-disclaimer">
-          ※別途、月次の管理代行費が発生します（規模に応じてご提案）。
-        </p>
-      </article>
-
-      <!-- Consulting -->
-      <article class="ensapo-card" role="listitem">
-        <span class="ensapo-badge">新規導入・仕組み改善・再設計</span>
-        <h3 class="ensapo-plan">コンサルティングプラン</h3>
-        <p class="ensapo-price">
-          最低 25,000円〜
-        </p>
-        <p class="ensapo-note">フルパッケージ（設計〜改善まで）</p>
-        <div class="ensapo-divider"></div>
-        <ul class="ensapo-list">
-          <li>導線設計／ルール策定／運営オペレーション構築</li>
-          <li>マニュアル化・再現性づくり・改善サイクル設計</li>
-          <li>売上・回転率などの観点からも運営を最適化</li>
-        </ul>
-        <p class="ensapo-disclaimer">
-          ※内容・帯同回数・資料作成範囲により変動します。
-        </p>
-      </article>
-    </div>
-
-    <div class="ensapo-foot">
-      <div class="ensapo-commit">
-        <h3>エンサポがコミットするのは「人員数」ではなく「人材コスト改善」です。</h3>
-        <p>
-          採用・教育・欠勤対応・管理工数まで含めた総コスト構造を整理し、<br>
-          <strong>人件費が成果につながる運営</strong>へ。無料相談で現状を伺い、最も効率の良い体制をご提案します。
-        </p>
-      </div>
-
-      <div class="ensapo-cta">
-        <a class="ensapo-btn ensapo-btn-primary" href="#contact">無料相談はこちら（30分）</a>
-        <p class="ensapo-subcta">
-          相談内容例：開催頻度／拘束時間／現状の人員構成／課題（混雑・欠勤・管理負荷など）<br>
-          ※ご相談のみでもOK。最適なプラン・概算を提示します。
-        </p>
-      </div>
-    </div>
-
-    <p class="ensapo-disclaimer">
-      ※記載の「最低料金」は、基本想定（小規模・標準条件）に基づく目安です。<br>
-      ※安全・品質・ブランド毀損リスクを踏まえ、必要最小限の体制で設計します。
-    </p>
+    <a href="#contact" class="btn">無料相談はこちら（30分）</a>
   </div>
 </section>
+
+<!-- ===== 特徴 ===== -->
+<section class="section">
+  <div class="container">
+    <h2>エンサポの特典会支援</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>圧倒的な低コスト</h3>
+        <p>人件費・交通費・手数料込み。無駄を省いた設計。</p>
+      </div>
+      <div class="feature">
+        <h3>仕組み化・再現性</h3>
+        <p>属人化を防ぎ、安定して回る運営体制を構築。</p>
+      </div>
+      <div class="feature">
+        <h3>人材コスト改善</h3>
+        <p>「人を増やす」ではなく「効率を上げる」。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 料金 ===== -->
+<section id="pricing" class="section">
+  <div class="container">
+    <h2>料金プラン</h2>
+    <div class="pricing">
+      <div class="plan">
+        <h3>スポットプラン</h3>
+        <div class="price">6,000円〜 / 人</div>
+        <p>単発・小規模向け。<br>人件費・交通費・手数料込み。</p>
+      </div>
+      <div class="plan">
+        <h3>パートナープラン</h3>
+        <div class="price">5,000円〜 / 人</div>
+        <p>継続運営向け。<br>管理工数を大幅削減。</p>
+      </div>
+      <div class="plan">
+        <h3>コンサルティング</h3>
+        <div class="price">25,000円〜</div>
+        <p>導入・改善・再設計までフル対応。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="section" style="background:#fff7e6;">
+  <div class="container">
+    <h2>よくある質問</h2>
+    <details>
+      <summary>どれくらい前に依頼すればいいですか？</summary>
+      <p>目安は2週間前ですが、直前相談も可能です。</p>
+    </details>
+    <details>
+      <summary>地方イベントも対応可能ですか？</summary>
+      <p>全国対応しています。</p>
+    </details>
+    <details>
+      <summary>見積だけでも大丈夫？</summary>
+      <p>はい、無料でご提案します。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="contact" class="section cta">
+  <div class="container">
+    <h2>まずは無料相談から</h2>
+    <p>現状を伺い、最も効率の良い特典会運営をご提案します。</p>
+    <a href="mailto:ensapo.staff@gmail.com">無料相談を申し込む</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © エンサポ
+  </div>
+</footer>
+
+</body>
+</html>
