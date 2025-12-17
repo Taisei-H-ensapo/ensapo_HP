@@ -1,102 +1,124 @@
-<section id="faq" class="ensapo-faq" aria-labelledby="faq-title">
+<section id="pricing" class="ensapo-pricing" aria-labelledby="pricing-title">
   <style>
-    .ensapo-faq { padding: 56px 20px; background: rgba(0,0,0,.02); }
-    .ensapo-faq .ensapo-title { margin-bottom: 10px; }
-    .ensapo-faq .ensapo-lead { margin-bottom: 18px; }
-    details.ensapo-qa { border: 1px solid rgba(0,0,0,.08); border-radius: 16px; background: #fff; padding: 14px 16px; }
-    details.ensapo-qa + details.ensapo-qa { margin-top: 12px; }
-    details.ensapo-qa summary { cursor: pointer; list-style: none; display: flex; gap: 10px; align-items: flex-start; }
-    details.ensapo-qa summary::-webkit-details-marker { display: none; }
-    .ensapo-q { font-weight: 800; min-width: 28px; }
-    .ensapo-qtext { font-weight: 700; line-height: 1.6; }
-    .ensapo-atext { margin: 10px 0 0; line-height: 1.9; opacity: .9; }
-    .ensapo-mini { margin-top: 16px; font-size: 12px; line-height: 1.8; opacity: .75; }
-    .ensapo-faq-cta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-    .ensapo-faq-cta a { display: inline-block; padding: 10px 14px; border-radius: 14px; text-decoration: none; font-weight: 700; border: 1px solid rgba(0,0,0,.12); }
-    .ensapo-faq-cta .primary { background: #111; color: #fff; border-color: #111; }
+    .ensapo-pricing { padding: 64px 20px; background: #ffffff; }
+    .ensapo-wrap { max-width: 1080px; margin: 0 auto; }
+    .ensapo-kicker { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+    .ensapo-title { font-size: 32px; line-height: 1.25; margin: 10px 0 12px; }
+    .ensapo-lead { font-size: 16px; line-height: 1.8; margin: 0 0 28px; opacity: .9; }
+    .ensapo-grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .ensapo-card { grid-column: span 12; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; padding: 22px; box-shadow: 0 6px 20px rgba(0,0,0,.04); }
+    @media (min-width: 860px) {
+      .ensapo-card { grid-column: span 4; }
+    }
+    .ensapo-badge { display: inline-block; font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,.05); }
+    .ensapo-plan { font-size: 18px; margin: 12px 0 6px; }
+    .ensapo-price { font-size: 26px; margin: 0 0 6px; }
+    .ensapo-price small { font-size: 14px; opacity: .8; }
+    .ensapo-note { font-size: 13px; line-height: 1.75; opacity: .85; margin: 10px 0 0; }
+    .ensapo-list { margin: 14px 0 0; padding-left: 18px; line-height: 1.8; }
+    .ensapo-divider { height: 1px; background: rgba(0,0,0,.08); margin: 18px 0; }
+    .ensapo-foot { margin-top: 18px; display: grid; gap: 14px; grid-template-columns: 1fr; align-items: center; }
+    @media (min-width: 860px) {
+      .ensapo-foot { grid-template-columns: 1.2fr .8fr; }
+    }
+    .ensapo-commit { border-radius: 18px; padding: 18px; background: rgba(0,0,0,.03); }
+    .ensapo-commit h3 { margin: 0 0 6px; font-size: 16px; }
+    .ensapo-commit p { margin: 0; font-size: 14px; line-height: 1.9; opacity: .9; }
+    .ensapo-cta { text-align: left; }
+    .ensapo-btn { display: inline-block; padding: 12px 16px; border-radius: 14px; text-decoration: none; font-weight: 700; border: 1px solid rgba(0,0,0,.12); }
+    .ensapo-btn-primary { background: #111111; color: #ffffff; border-color: #111111; }
+    .ensapo-subcta { margin: 10px 0 0; font-size: 13px; opacity: .8; line-height: 1.7; }
+    .ensapo-disclaimer { margin-top: 18px; font-size: 12px; line-height: 1.8; opacity: .75; }
   </style>
 
   <div class="ensapo-wrap">
-    <div class="ensapo-kicker">FAQ</div>
-    <h2 id="faq-title" class="ensapo-title">よくある質問</h2>
+    <div class="ensapo-kicker">Pricing</div>
+    <h2 id="pricing-title" class="ensapo-title">料金は「最低ライン」を明確に。</h2>
     <p class="ensapo-lead">
-      初めてのご相談でも大丈夫です。<br>
-      条件・規模に合わせて、最も負担の少ない形をご提案します。
+      エンサポは、特典会支援に特化したシンプルな料金設計です。<br>
+      <strong>まずは“お手軽に試せる”最低料金</strong>を提示し、無料相談で規模・拘束時間・体制に合わせて最適化します。
     </p>
 
-    <details class="ensapo-qa">
-      <summary>
-        <span class="ensapo-q">Q.</span>
-        <span class="ensapo-qtext">スタッフの手配は、どのくらい前までに依頼すればいいですか？</span>
-      </summary>
-      <p class="ensapo-atext">
-        目安として、<strong>開催の2週間前まで</strong>のご依頼を推奨しています。<br>
-        ただし直前のご相談でも、可能な範囲で対応します（特急対応あり）。
-      </p>
-    </details>
+    <div class="ensapo-grid" role="list">
+      <!-- Spot -->
+      <article class="ensapo-card" role="listitem">
+        <span class="ensapo-badge">まず一度頼んでみたい方向け</span>
+        <h3 class="ensapo-plan">スポットプラン</h3>
+        <p class="ensapo-price">
+          最低 6,000円〜 <small>/ 人</small>
+        </p>
+        <p class="ensapo-note">人件費・交通費・手数料すべて込み</p>
+        <div class="ensapo-divider"></div>
+        <ul class="ensapo-list">
+          <li>特典会当日の人員手配・運営サポート</li>
+          <li>「今回だけ」「人手が足りない時だけ」に対応</li>
+          <li>小規模案件から利用可能</li>
+        </ul>
+        <p class="ensapo-disclaimer">
+          ※拘束時間・役割・追加対応（特急/地方等）により変動します。
+        </p>
+      </article>
 
-    <details class="ensapo-qa">
-      <summary>
-        <span class="ensapo-q">Q.</span>
-        <span class="ensapo-qtext">地方でのイベントにも対応していますか？</span>
-      </summary>
-      <p class="ensapo-atext">
-        はい、<strong>全国対応</strong>しています。<br>
-        交通費・宿泊費等が発生する場合は、別途お見積りとなります。
-      </p>
-    </details>
+      <!-- Partner -->
+      <article class="ensapo-card" role="listitem">
+        <span class="ensapo-badge">継続運用・複数案件を安定させたい方向け</span>
+        <h3 class="ensapo-plan">パートナープラン</h3>
+        <p class="ensapo-price">
+          最低 5,000円〜 <small>/ 人</small>
+        </p>
+        <p class="ensapo-note">人件費・交通費・手数料すべて込み</p>
+        <div class="ensapo-divider"></div>
+        <ul class="ensapo-list">
+          <li>人員募集・調整・割当・勤怠・報告の一元管理</li>
+          <li>管理工数の外部化で、現場負荷を継続的に削減</li>
+          <li>品質を揃え、運営を“回る形”に整備</li>
+        </ul>
+        <p class="ensapo-disclaimer">
+          ※別途、月次の管理代行費が発生します（規模に応じてご提案）。
+        </p>
+      </article>
 
-    <details class="ensapo-qa">
-      <summary>
-        <span class="ensapo-q">Q.</span>
-        <span class="ensapo-qtext">スタッフの指導・教育はされていますか？</span>
-      </summary>
-      <p class="ensapo-atext">
-        はい。事前に基本研修・現場マナー・金銭管理ルール等を共有し、<br>
-        現場経験のある担当者を中心に手配します。
-      </p>
-    </details>
-
-    <details class="ensapo-qa">
-      <summary>
-        <span class="ensapo-q">Q.</span>
-        <span class="ensapo-qtext">現場でトラブルが起きた場合はどうなりますか？</span>
-      </summary>
-      <p class="ensapo-atext">
-        トラブル発生時は、担当スタッフが責任をもって対応します。<br>
-        必要に応じて運営事務局が状況を確認し、支援します。
-      </p>
-    </details>
-
-    <details class="ensapo-qa">
-      <summary>
-        <span class="ensapo-q">Q.</span>
-        <span class="ensapo-qtext">チェキ・物販など、現場での金銭授受は依頼できますか？</span>
-      </summary>
-      <p class="ensapo-atext">
-        現場責任者の管理のもとで実施可能です。<br>
-        ただし、当事務局は<strong>金銭管理そのものの責任は負えません</strong>。
-      </p>
-    </details>
-
-    <details class="ensapo-qa">
-      <summary>
-        <span class="ensapo-q">Q.</span>
-        <span class="ensapo-qtext">見積もりだけお願いすることは可能ですか？ 支払い方法は？</span>
-      </summary>
-      <p class="ensapo-atext">
-        はい、可能です。内容を伺ったうえで、無料でお見積り・ご提案します。<br>
-        お支払いは原則、<strong>事後振込（銀行振込）</strong>となります。定期利用の場合は月末締め等もご相談ください。
-      </p>
-    </details>
-
-    <div class="ensapo-faq-cta">
-      <a class="primary" href="#contact">無料相談はこちら（30分）</a>
-      <a href="#pricing">料金を見る</a>
+      <!-- Consulting -->
+      <article class="ensapo-card" role="listitem">
+        <span class="ensapo-badge">新規導入・仕組み改善・再設計</span>
+        <h3 class="ensapo-plan">コンサルティングプラン</h3>
+        <p class="ensapo-price">
+          最低 25,000円〜
+        </p>
+        <p class="ensapo-note">フルパッケージ（設計〜改善まで）</p>
+        <div class="ensapo-divider"></div>
+        <ul class="ensapo-list">
+          <li>導線設計／ルール策定／運営オペレーション構築</li>
+          <li>マニュアル化・再現性づくり・改善サイクル設計</li>
+          <li>売上・回転率などの観点からも運営を最適化</li>
+        </ul>
+        <p class="ensapo-disclaimer">
+          ※内容・帯同回数・資料作成範囲により変動します。
+        </p>
+      </article>
     </div>
 
-    <p class="ensapo-mini">
-      ※案件の内容・会場条件・拘束時間によって最適な体制は変わります。まずは現状をお聞かせください。
+    <div class="ensapo-foot">
+      <div class="ensapo-commit">
+        <h3>エンサポがコミットするのは「人員数」ではなく「人材コスト改善」です。</h3>
+        <p>
+          採用・教育・欠勤対応・管理工数まで含めた総コスト構造を整理し、<br>
+          <strong>人件費が成果につながる運営</strong>へ。無料相談で現状を伺い、最も効率の良い体制をご提案します。
+        </p>
+      </div>
+
+      <div class="ensapo-cta">
+        <a class="ensapo-btn ensapo-btn-primary" href="#contact">無料相談はこちら（30分）</a>
+        <p class="ensapo-subcta">
+          相談内容例：開催頻度／拘束時間／現状の人員構成／課題（混雑・欠勤・管理負荷など）<br>
+          ※ご相談のみでもOK。最適なプラン・概算を提示します。
+        </p>
+      </div>
+    </div>
+
+    <p class="ensapo-disclaimer">
+      ※記載の「最低料金」は、基本想定（小規模・標準条件）に基づく目安です。<br>
+      ※安全・品質・ブランド毀損リスクを踏まえ、必要最小限の体制で設計します。
     </p>
   </div>
 </section>
