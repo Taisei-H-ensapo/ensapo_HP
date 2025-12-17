@@ -1,237 +1,801 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>エンサポ｜特典会運営支援</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>エンサポ｜Entertainment Support for the Next Scene</title>
+  <meta name="description" content="特典会・ファンイベント運営を、最安値水準で“最適化”。スポット／パートナー／コンサルまで。人材コストの収益改善にコミットします。" />
 
-<style>
-:root{
-  --orange:#ff8a00;
-  --yellow:#ffd84d;
-  --dark:#111;
-}
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --panel:#101018;
+      --panel2:#0f1016;
+      --text:#f6f6f7;
+      --muted:rgba(255,255,255,.75);
+      --muted2:rgba(255,255,255,.55);
+      --line:rgba(255,255,255,.12);
 
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
-  color:var(--dark);
-  background:#fff;
-  line-height:1.8;
-}
+      --orange:#ff7a00;
+      --yellow:#ffd24d;
+      --accent: linear-gradient(135deg, var(--orange), var(--yellow));
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 22px;
+      --radius2: 16px;
+    }
 
-/* 共通 */
-.container{max-width:1100px;margin:0 auto;padding:0 20px;}
-.section{padding:80px 0;}
-h1,h2,h3{line-height:1.3;margin:0 0 12px;}
-h2{font-size:32px;}
-p{margin:0 0 12px;}
-a{text-decoration:none;}
+    *{box-sizing:border-box;}
+    html,body{margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans JP", sans-serif; background:var(--bg); color:var(--text);}
+    a{color:inherit; text-decoration:none;}
+    .container{max-width:1120px; margin:0 auto; padding:0 20px;}
 
-/* ヘッダー */
-header{
-  position:sticky;top:0;z-index:10;
-  background:#fff;
-  border-bottom:1px solid #eee;
-}
-header .container{
-  display:flex;justify-content:space-between;align-items:center;
-  height:64px;
-}
-nav a{margin-left:16px;color:#333;font-weight:600;}
+    /* Top bar */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,15,.7);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      height:66px; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background: var(--accent);
+      box-shadow: 0 10px 30px rgba(255,122,0,.25);
+      display:grid; place-items:center;
+      font-weight:900; color:#111;
+    }
+    .brandtext strong{display:block; font-size:14px; letter-spacing:.06em;}
+    .brandtext span{display:block; font-size:12px; color:var(--muted2); margin-top:2px;}
+    nav{display:flex; gap:14px; align-items:center; flex-wrap:wrap;}
+    nav a{font-size:13px; color:var(--muted); padding:8px 10px; border-radius:12px;}
+    nav a:hover{background: rgba(255,255,255,.06);}
 
-/* ===== KV ===== */
-.kv{
-  position:relative;
-  height:85vh;
-  min-height:520px;
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url(https://drive.google.com/file/d/1S3R8puHY7lDbevFZq8OWOSTfadwwuF0w/view?usp=sharing) center/cover no-repeat;
-  color:#fff;
-  display:flex;
-  align-items:center;
-}
-.kv h1{font-size:46px;}
-.kv p{font-size:18px;max-width:520px;}
-.kv .btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 20px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--orange),var(--yellow));
-  color:#000;
-  font-weight:800;
-}
+    .ctaBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:999px;
+      background: var(--accent); color:#111; font-weight:900;
+      box-shadow: 0 14px 40px rgba(255,122,0,.22);
+      border:1px solid rgba(255,255,255,.12);
+      white-space:nowrap;
+    }
 
-/* ===== 特徴 ===== */
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
-.feature{
-  background:#fff7e6;
-  border-radius:18px;
-  padding:22px;
-}
-.feature h3{font-size:20px;color:var(--orange);}
+    /* Hero */
+    .hero{
+      position:relative;
+      padding: 28px 0 26px;
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid; gap:18px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:980px){
+      .heroGrid{grid-template-columns: 1.05fr .95fr; align-items:stretch;}
+    }
 
-/* ===== 料金 ===== */
-.pricing{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-}
-.plan{
-  border:2px solid var(--orange);
-  border-radius:22px;
-  padding:26px;
-}
-.plan h3{color:var(--orange);}
-.price{
-  font-size:28px;
-  font-weight:900;
-  margin:12px 0;
-}
+    /* 左側の縦帯（資料っぽい） */
+    .sideRibbon{
+      position:absolute; left:-6px; top:120px;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      font-weight:900;
+      letter-spacing:.12em;
+      font-size:12px;
+      color: rgba(255,255,255,.20);
+      user-select:none;
+      pointer-events:none;
+    }
 
-/* ===== FAQ ===== */
-details{
-  border:1px solid #ddd;
-  border-radius:14px;
-  padding:14px 18px;
-  margin-bottom:12px;
-}
-summary{cursor:pointer;font-weight:700;}
+    .heroCopy{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCopy:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 300px at 10% 10%, rgba(255,122,0,.20), transparent 60%),
+                  radial-gradient(500px 260px at 80% 30%, rgba(255,210,77,.16), transparent 55%);
+      pointer-events:none;
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; letter-spacing:.10em;
+      color: rgba(255,255,255,.70);
+      text-transform: uppercase;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      position:relative;
+    }
+    .kicker i{
+      width:8px; height:8px; border-radius:99px; background: var(--accent);
+      display:inline-block;
+    }
+    h1{
+      font-size:40px; line-height:1.15;
+      margin: 14px 0 10px;
+      position:relative;
+    }
+    @media(min-width:980px){ h1{font-size:46px;} }
+    .lead{
+      font-size:15px; line-height:1.9;
+      color: var(--muted);
+      margin: 0 0 16px;
+      position:relative;
+    }
+    .tagline{
+      font-size:14px; color: rgba(255,255,255,.85);
+      margin: 0 0 18px;
+      position:relative;
+    }
+    .tagline strong{
+      background: var(--accent);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      font-weight:900;
+    }
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; position:relative;}
+    .ghostBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      font-weight:800;
+    }
+    .ghostBtn:hover{background: rgba(255,255,255,.07);}
+    .miniNote{margin-top:12px; font-size:12px; color: var(--muted2); position:relative;}
 
-/* ===== CTA ===== */
-.cta{
-  background:linear-gradient(135deg,var(--orange),var(--yellow));
-  color:#000;
-  text-align:center;
-}
-.cta a{
-  display:inline-block;
-  margin-top:14px;
-  padding:14px 22px;
-  border-radius:999px;
-  background:#000;
-  color:#fff;
-  font-weight:800;
-}
+    .heroKV{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 420px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55)),
+        url("kv.png") center/cover no-repeat;
+    }
+    .heroKV:after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 420px at 40% 0%, rgba(255,122,0,.22), transparent 60%),
+                  radial-gradient(620px 360px at 90% 40%, rgba(255,210,77,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .kvCaption{
+      position:absolute; left:18px; right:18px; bottom:18px;
+      padding:14px 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.40);
+      backdrop-filter: blur(8px);
+    }
+    .kvCaption .jp{
+      font-weight:900; font-size:16px; margin:0 0 4px;
+    }
+    .kvCaption .en{
+      margin:0; font-size:12px; color: rgba(255,255,255,.80);
+      letter-spacing:.02em;
+    }
 
-/* フッター */
-footer{
-  background:#111;
-  color:#aaa;
-  font-size:12px;
-  padding:24px 0;
-}
-</style>
+    /* Sections */
+    section{padding: 74px 0; border-top:1px solid var(--line);}
+    .secHead{display:flex; justify-content:space-between; gap:14px; align-items:flex-end; flex-wrap:wrap;}
+    .secHead h2{margin:0; font-size:30px; line-height:1.2;}
+    .secHead p{margin:0; color:var(--muted); max-width:720px;}
+
+    .cards{
+      margin-top:22px;
+      display:grid; gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,.04);
+      padding:18px;
+    }
+    @media(min-width:860px){ .card{grid-column: span 4;} }
+    .card h3{margin:0 0 6px; font-size:16px;}
+    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.9;}
+    .icon{
+      width:34px; height:34px; border-radius:14px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      display:grid; place-items:center;
+      margin-bottom:10px;
+      color:#111;
+      font-weight:900;
+      position:relative;
+      overflow:hidden;
+    }
+    .icon:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: var(--accent);
+      opacity:.95;
+      filter: blur(0);
+    }
+    .icon span{position:relative;}
+
+    /* Mission block (資料の Our Mission の雰囲気) */
+    .mission{
+      margin-top:22px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        radial-gradient(800px 400px at 20% 0%, rgba(255,122,0,.22), transparent 60%),
+        radial-gradient(800px 400px at 80% 20%, rgba(255,210,77,.18), transparent 55%);
+      box-shadow: var(--shadow);
+    }
+    .missionInner{padding:26px;}
+    .missionTitle{
+      font-weight:900; font-size:14px; letter-spacing:.06em;
+      margin:0 0 10px;
+      display:flex; gap:10px; align-items:center;
+    }
+    .missionTitle b{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:26px; height:26px; border-radius:10px;
+      background: var(--accent); color:#111;
+    }
+    .missionText{margin:0; color: rgba(255,255,255,.82); line-height:2.0; font-size:14px;}
+    .missionText strong{color:#fff;}
+
+    /* Plans */
+    .planGrid{
+      margin-top:22px;
+      display:grid; gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .plan{
+      grid-column: span 12;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:22px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    @media(min-width:980px){ .plan{grid-column: span 4;} }
+    .pill{
+      display:inline-block; font-size:12px; color: rgba(255,255,255,.78);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      margin-bottom:10px;
+    }
+    .plan h3{margin:0 0 6px; font-size:18px;}
+    .price{
+      font-size:28px; font-weight:1000; margin:0 0 6px;
+      background: var(--accent);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+    .plan p{margin:0; color:var(--muted); font-size:13px; line-height:1.9;}
+    .plan ul{margin:14px 0 0; padding-left:18px; color: rgba(255,255,255,.82); line-height:1.9; font-size:13px;}
+    .plan li{margin:6px 0;}
+    .micro{margin-top:12px; color: var(--muted2); font-size:12px; line-height:1.8;}
+
+    /* Numbers (効果試算) */
+    .numbers{
+      margin-top:22px;
+      display:grid; gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .stat{
+      grid-column: span 12;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:18px;
+    }
+    @media(min-width:860px){ .stat{grid-column: span 4;} }
+    .stat .big{font-size:30px; font-weight:1000; margin:0;}
+    .stat .big span{background: var(--accent); -webkit-background-clip:text; background-clip:text; color:transparent;}
+    .stat .label{margin:4px 0 0; color: var(--muted); font-size:13px;}
+    .stat .sub{margin:10px 0 0; color: var(--muted2); font-size:12px; line-height:1.8;}
+
+    .noteBox{
+      margin-top:14px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      padding:14px 16px;
+      color: rgba(255,255,255,.75);
+      font-size:12px;
+      line-height:1.9;
+    }
+
+    /* Flow */
+    .steps{
+      margin-top:22px;
+      display:grid; gap:12px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .step{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      padding:16px;
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    @media(min-width:860px){ .step{grid-column: span 6;} }
+    .num{
+      width:34px; height:34px; border-radius:14px;
+      background: var(--accent); color:#111; font-weight:1000;
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+    }
+    .step h3{margin:0 0 4px; font-size:15px;}
+    .step p{margin:0; color: var(--muted); font-size:13px; line-height:1.9;}
+
+    /* FAQ */
+    details{
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      padding: 14px 16px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:900;
+      color: rgba(255,255,255,.92);
+      list-style:none;
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    details summary::-webkit-details-marker{display:none;}
+    .qBadge{
+      width:26px; height:26px; border-radius:10px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      display:grid; place-items:center;
+      font-weight:1000;
+    }
+    details p{margin:10px 0 0; color: var(--muted); font-size:13px; line-height:1.95;}
+
+    /* Contact */
+    .contactCard{
+      margin-top:22px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:980px){ .contactCard{grid-template-columns: 1.1fr .9fr; align-items:center;} }
+    .contactCard h3{margin:0 0 6px;}
+    .contactCard p{margin:0; color:var(--muted); font-size:13px; line-height:1.9;}
+    .contactActions{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-start;}
+    .mailBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius: 999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.90);
+      font-weight:900;
+    }
+    .mailBtn.primary{background: var(--accent); color:#111; border-color: rgba(255,255,255,.12);}
+
+    footer{
+      padding: 32px 0;
+      color: var(--muted2);
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .footGrid{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:860px){ .footGrid{grid-template-columns: 1.2fr .8fr;} }
+    .footTitle{font-weight:900; color: rgba(255,255,255,.82); margin:0 0 4px;}
+    .footSmall{margin:0; font-size:12px; line-height:1.9;}
+    .footLinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-start;}
+    .footLinks a{font-size:12px; padding:8px 10px; border-radius:12px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);}
+
+    /* Small tweaks */
+    .dividerSpace{height:14px;}
+  </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container">
-    <strong>エンサポ</strong>
-    <nav>
-      <a href="#pricing">料金</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">無料相談</a>
+  <div class="container topbar">
+    <div class="brand">
+      <div class="logo">E</div>
+      <div class="brandtext">
+        <strong>エンサポ</strong>
+        <span>Entertainment Support for the Next Scene.</span>
+      </div>
+    </div>
+    <nav aria-label="primary">
+      <a href="#mission">Mission</a>
+      <a href="#points">5つのポイント</a>
+      <a href="#plans">プラン</a>
+      <a href="#impact">効果</a>
+      <a href="#faq">Q&A</a>
+      <a class="ctaBtn" href="#contact">無料相談（30分）</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== KV ===== -->
-<section class="kv">
-  <div class="container">
-    <h1>特典会運営を、<br>もっと安く、もっと楽に。</h1>
-    <p>
-      スポットから継続パートナー、導入・改善コンサルまで。<br>
-      エンサポは「人材コストの収益改善」にコミットします。
-    </p>
-    <a href="#contact" class="btn">無料相談はこちら（30分）</a>
-  </div>
-</section>
+<main>
 
-<!-- ===== 特徴 ===== -->
-<section class="section">
-  <div class="container">
-    <h2>エンサポの特典会支援</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>圧倒的な低コスト</h3>
-        <p>人件費・交通費・手数料込み。無駄を省いた設計。</p>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="sideRibbon">ENTERTAINMENT SUPPORT</div>
+
+    <div class="container heroGrid">
+      <div class="heroCopy">
+        <div class="kicker"><i></i> SERVICE GUIDE / 特典会支援事業</div>
+        <h1>最高のエンタメを、<br>ともに創る。</h1>
+        <p class="tagline">Empowering creators to focus on <strong>what truly matters</strong>.</p>
+        <p class="lead">
+          エンサポは、特典会・ファンイベント等の“現場”に必要な実務力と安心感を両立し、<br>
+          <strong>人材・運営・制作</strong>の煩雑領域を最適化する裏方パートナーです。
+        </p>
+        <div class="heroActions">
+          <a class="ctaBtn" href="#contact">無料相談はこちら（30分）</a>
+          <a class="ghostBtn" href="#plans">料金・プランを見る</a>
+        </div>
+        <p class="miniNote">
+          スポット／パートナー／コンサル（新規導入・仕組み改善）に対応。<br>
+          まずは現状を伺い、最小コストで最も安定する体制をご提案します。
+        </p>
       </div>
-      <div class="feature">
-        <h3>仕組み化・再現性</h3>
-        <p>属人化を防ぎ、安定して回る運営体制を構築。</p>
-      </div>
-      <div class="feature">
-        <h3>人材コスト改善</h3>
-        <p>「人を増やす」ではなく「効率を上げる」。</p>
+
+      <div class="heroKV" role="img" aria-label="ステージで輝くパフォーマンス（サービスKV）">
+        <div class="kvCaption">
+          <p class="jp">エンタメの現場に、確かな運営力を。</p>
+          <p class="en">Entertainment Support that keeps the stage running — safely, smoothly, sustainably.</p>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ===== 料金 ===== -->
-<section id="pricing" class="section">
-  <div class="container">
-    <h2>料金プラン</h2>
-    <div class="pricing">
-      <div class="plan">
-        <h3>スポットプラン</h3>
-        <div class="price">6,000円〜 / 人</div>
-        <p>単発・小規模向け。<br>人件費・交通費・手数料込み。</p>
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="container">
+      <div class="secHead">
+        <h2>Our Mission</h2>
+        <p>
+          事務所やマネージャーが、本質的な領域（プロデュース／マネジメント／クリエイティブ）に集中できるよう、<br>
+          “煩雑で専門性を要する領域”を仕組みから最適化します。
+        </p>
       </div>
-      <div class="plan">
-        <h3>パートナープラン</h3>
-        <div class="price">5,000円〜 / 人</div>
-        <p>継続運営向け。<br>管理工数を大幅削減。</p>
-      </div>
-      <div class="plan">
-        <h3>コンサルティング</h3>
-        <div class="price">25,000円〜</div>
-        <p>導入・改善・再設計までフル対応。</p>
+
+      <div class="mission">
+        <div class="missionInner">
+          <p class="missionTitle"><b>!</b> エンサポが目指すこと</p>
+          <p class="missionText">
+            エンタメ業界では、現場負担や管理コストの増大が課題です。エンサポは、人材・運営・制作といった領域の最適化を担い、
+            タレントやコンテンツが本来の魅力を最大限に発揮できる環境を整えます。<br><br>
+            成功するコンテンツとそうでないものの差は、<strong>「制作チームが最適な体制でコミットできるか」</strong>。
+            私たちは、その最適化を業界全体で共有できる“新しいインフラ”として機能し、持続的な進化の土台を築きます。
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== FAQ ===== -->
-<section id="faq" class="section" style="background:#fff7e6;">
-  <div class="container">
-    <h2>よくある質問</h2>
-    <details>
-      <summary>どれくらい前に依頼すればいいですか？</summary>
-      <p>目安は2週間前ですが、直前相談も可能です。</p>
-    </details>
-    <details>
-      <summary>地方イベントも対応可能ですか？</summary>
-      <p>全国対応しています。</p>
-    </details>
-    <details>
-      <summary>見積だけでも大丈夫？</summary>
-      <p>はい、無料でご提案します。</p>
-    </details>
-  </div>
-</section>
+  <!-- 5 POINTS -->
+  <section id="points">
+    <div class="container">
+      <div class="secHead">
+        <h2>エンサポ 5つのポイント</h2>
+        <p>
+          単なる人材手配ではなく、「仕組み」と「支援体制」を提供します。
+        </p>
+      </div>
 
-<!-- ===== CTA ===== -->
-<section id="contact" class="section cta">
-  <div class="container">
-    <h2>まずは無料相談から</h2>
-    <p>現状を伺い、最も効率の良い特典会運営をご提案します。</p>
-    <a href="mailto:ensapo.staff@gmail.com">無料相談を申し込む</a>
-  </div>
-</section>
+      <div class="cards">
+        <div class="card">
+          <div class="icon"><span>1</span></div>
+          <h3>スタッフ管理費の削減</h3>
+          <p>採用・教育・調整・勤怠・報告までを一元化し、管理工数を圧縮します。</p>
+        </div>
+        <div class="card">
+          <div class="icon"><span>2</span></div>
+          <h3>安定的な人員供給</h3>
+          <p>欠勤リスクを抑え、現場を安定稼働へ。直前対応にも柔軟に対応します。</p>
+        </div>
+        <div class="card">
+          <div class="icon"><span>3</span></div>
+          <h3>共通基盤によるノウハウ構築</h3>
+          <p>現場知見をテンプレ化・共有し、再現性ある運営体制を作ります。</p>
+        </div>
+        <div class="card">
+          <div class="icon"><span>4</span></div>
+          <h3>責任所在の明確なサポート体制</h3>
+          <p>担当者・連絡系統・対応範囲を明確にし、安心して任せられる形にします。</p>
+        </div>
+        <div class="card">
+          <div class="icon"><span>5</span></div>
+          <h3>徹底的なデータ分析</h3>
+          <p>回転率・客単価・再来などの観点も踏まえ、運営を改善サイクルに乗せます。</p>
+        </div>
+        <div class="card">
+          <div class="icon"><span>+</span></div>
+          <h3>現場対応力</h3>
+          <p>トラブル時も迅速に判断・行動。現場の安心感を支えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans">
+    <div class="container">
+      <div class="secHead">
+        <h2>プラン</h2>
+        <p>
+          目的と規模に応じたシンプルな料金設計。まずは最低料金から、気軽にお試しできます。
+        </p>
+      </div>
+
+      <div class="planGrid">
+        <article class="plan">
+          <span class="pill">「まず一度頼んでみたい」向け</span>
+          <h3>スポットプラン</h3>
+          <p class="price">最低 6,000円〜 / 人</p>
+          <p>（人件費・交通費・手数料すべて込み）</p>
+          <ul>
+            <li>単発のスタッフ手配／当日運営サポート</li>
+            <li>小規模〜大型イベントまで柔軟に構成</li>
+            <li>特急手配・地方案件にも対応</li>
+          </ul>
+          <p class="micro">※料金詳細（延長／特急／地方案件等）は無料相談で条件に合わせてご案内します。</p>
+        </article>
+
+        <article class="plan">
+          <span class="pill">「日常的に安定させたい」向け</span>
+          <h3>パートナープラン</h3>
+          <p class="price">最低 5,000円〜 / 人</p>
+          <p>（人件費・交通費・手数料すべて込み）</p>
+          <ul>
+            <li>採用・手配・勤怠・報告まで一括管理</li>
+            <li>グループ増加に伴う管理業務を解消</li>
+            <li>月次請求の一本化／品質の均一化</li>
+          </ul>
+          <p class="micro">※管理代行費（事務所＋グループ単位）が別途発生します。条件に応じて最適化します。</p>
+        </article>
+
+        <article class="plan">
+          <span class="pill">導入／改善／再設計（フルパッケージ）</span>
+          <h3>コンサルティングプラン</h3>
+          <p class="price">最低 25,000円〜</p>
+          <p>（1公演帯同込み・改善基本支援の最低ライン）</p>
+          <ul>
+            <li>導線設計／ルール策定／オペ構築</li>
+            <li>マニュアル化・データ化で再現性を作る</li>
+            <li>回転率・売上分析を踏まえた改善</li>
+          </ul>
+          <p class="micro">※導入コンサル（40,000円〜）／継続支援（20,000円/月〜）等の体系もあります。</p>
+        </article>
+      </div>
+
+      <div class="noteBox">
+        料金体系の根拠（例）：スポットは「人件費（2h）＋手数料」を合算し 6,000円/人 を最低ラインとして設定。
+        パートナーは管理工数を集約することで 5,000円/人 の最低ラインを実現。コンサルは改善基本支援 25,000円（1公演帯同込み）を最低ラインとして提示しています。
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <div class="container">
+      <div class="secHead">
+        <h2>効果試算</h2>
+        <p>
+          エンサポは「最終的な人材コストの収益改善」にコミットします。採用・教育・管理工数・欠員非常対応など“見えにくいコスト”を統合し、総コストを最適化します。
+        </p>
+      </div>
+
+      <div class="numbers">
+        <div class="stat">
+          <p class="big"><span>約15%</span></p>
+          <p class="label">年間コスト削減（例：▲約165万円）</p>
+          <p class="sub">採用・教育・管理工数・欠勤対応の削減を統合し、総換算額で改善。</p>
+        </div>
+        <div class="stat">
+          <p class="big"><span>欠勤率 15% → 1%未満</span></p>
+          <p class="label">安定稼働（管理シフトで吸収）</p>
+          <p class="sub">現場の不安要因を最小化し、運営品質を平準化。</p>
+        </div>
+        <div class="stat">
+          <p class="big"><span>＋90〜120万円/年</span></p>
+          <p class="label">品質改善による売上改善（試算）</p>
+          <p class="sub">満足度・再来率・客単価への波及を控えめモデルで評価。</p>
+        </div>
+      </div>
+
+      <div class="noteBox">
+        ※上記は資料内のモデル（年間450公演等）に基づく試算です。規模・頻度・拘束時間により最適解は変わるため、無料相談で現状を伺い、あなたの前提で再計算します。
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section id="flow">
+    <div class="container">
+      <div class="secHead">
+        <h2>ご利用の流れ</h2>
+        <p>お問い合わせ〜本番〜フォローまで、専任担当が伴走します。</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3>お問い合わせ</h3>
+            <p>開催頻度・拘束時間・現状の人員構成・課題をヒアリングします。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3>ご提案</h3>
+            <p>スポット／パートナー／コンサルの最適プランと概算を提示します。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3>ご契約</h3>
+            <p>対応範囲・責任分界・連絡系統・キャンセル規定を明確化します。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h3>手配・準備</h3>
+            <p>人員構成の確定／資料共有／必要に応じてオペ・レギュレーション整備。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div>
+            <h3>本番</h3>
+            <p>現場担当者が対応。必要に応じて運営事務局も状況を確認・支援。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">6</div>
+          <div>
+            <h3>フォロー</h3>
+            <p>報告・振り返りを通じて、次回以降の改善に繋げます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="secHead">
+        <h2>よくある質問（Q&A）</h2>
+        <p>資料のQ&Aに沿って掲載しています。まずは気軽にご相談ください。</p>
+      </div>
+
+      <details>
+        <summary><span class="qBadge">Q</span>スタッフ手配はどれくらい前までに依頼すればいい？</summary>
+        <p>目安としてイベント開催の2週間前までを推奨しています。急なご依頼にも可能な範囲で対応します。</p>
+      </details>
+
+      <details>
+        <summary><span class="qBadge">Q</span>地方イベントにも対応していますか？</summary>
+        <p>はい、全国対応しています。交通費・宿泊費等は別途お見積りとなります。</p>
+      </details>
+
+      <details>
+        <summary><span class="qBadge">Q</span>スタッフの指導や教育は？</summary>
+        <p>事前に基本研修・現場マナー・金銭管理ルール等を共有し、現場経験豊富な担当者を中心に手配します。</p>
+      </details>
+
+      <details>
+        <summary><span class="qBadge">Q</span>トラブル時の対応は？</summary>
+        <p>担当サービススタッフが責任をもって対応します。運営事務局は必要に応じて状況を確認・支援します。</p>
+      </details>
+
+      <details>
+        <summary><span class="qBadge">Q</span>チェキ・物販など金銭授受は依頼できる？</summary>
+        <p>現場責任者の管理のもとで実施可能です。ただし当事務局は金銭管理の責任は負えません。</p>
+      </details>
+
+      <details>
+        <summary><span class="qBadge">Q</span>見積だけ／支払い方法は？</summary>
+        <p>見積のみも可能です。支払いは原則、事後振込（銀行振込）です。定期利用は月末締め等も相談可能です。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="secHead">
+        <h2>無料相談（30分）</h2>
+        <p>
+          「最小コストで最も安定する運営体制」を一緒に作ります。<br>
+          開催頻度／拘束時間／現状人員／課題（混雑・欠勤・管理負荷など）だけ教えてください。
+        </p>
+      </div>
+
+      <div class="contactCard">
+        <div>
+          <h3>まずは状況共有だけでもOK</h3>
+          <p>
+            目的（スポットで当日だけ／継続的に回したい／導入・改善したい）に合わせて、<br>
+            料金と対応範囲を整理し、最短で動ける形に落とし込みます。
+          </p>
+          <div class="dividerSpace"></div>
+          <p style="color:rgba(255,255,255,.75); font-size:12px;">
+            ※ご希望があれば、資料ベースの効果試算（人材コスト）をあなたの前提で再計算して提示します。
+          </p>
+        </div>
+
+        <div class="contactActions">
+          <a class="mailBtn primary" href="mailto:ensapo.staff@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%80%91%E7%89%B9%E5%85%B8%E4%BC%9A%E6%94%AF%E6%8F%B4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=%E3%83%BB%E9%96%8B%E5%82%AC%E9%A0%BB%E5%BA%A6%EF%BC%9A%0D%0A%E3%83%BB%E6%8B%98%E6%9D%9F%E6%99%82%E9%96%93%EF%BC%9A%0D%0A%E3%83%BB%E7%8F%BE%E7%8A%B6%E4%BA%BA%E5%93%A1%E6%A7%8B%E6%88%90%EF%BC%9A%0D%0A%E3%83%BB%E8%AA%B2%E9%A1%8C%EF%BC%88%E6%AC%A0%E5%8B%A4%2F%E7%AE%A1%E7%90%86%E8%B2%A0%E8%8D%B7%2F%E6%B7%B7%E9%9B%91%2F%E3%81%9D%E3%81%AE%E4%BB%96%EF%BC%89%EF%BC%9A">
+            メールで無料相談
+          </a>
+          <a class="mailBtn" href="mailto:ensapo.operations@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%80%91%E7%89%B9%E5%85%B8%E4%BC%9A%E9%81%8B%E5%96%B6%E3%81%AE%E4%BB%B6&body=%E3%83%BB%E9%96%8B%E5%82%AC%E6%97%A5%E7%A8%8B%EF%BC%9A%0D%0A%E3%83%BB%E4%BC%9A%E5%A0%B4%EF%BC%9A%0D%0A%E3%83%BB%E6%A1%88%E4%BB%B6%E8%A6%8F%E6%A8%A1%EF%BC%9A%0D%0A%E3%83%BB%E5%BF%85%E8%A6%81%E4%BA%BA%E6%95%B0%EF%BC%88%E4%BB%AE%EF%BC%89%EF%BC%9A">
+            運営窓口へ相談
+          </a>
+          <a class="mailBtn" href="#plans">料金・プランを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  <div class="container">
-    © エンサポ
+  <div class="container footGrid">
+    <div>
+      <p class="footTitle">エンサポ運営事務局</p>
+      <p class="footSmall">
+        Entertainment Support for the Next Scene.<br>
+        Mail：ensapo.staff@gmail.com / ensapo.operations@gmail.com
+      </p>
+    </div>
+    <div>
+      <div class="footLinks">
+        <a href="#mission">Mission</a>
+        <a href="#points">5つのポイント</a>
+        <a href="#plans">プラン</a>
+        <a href="#impact">効果試算</a>
+        <a href="#faq">Q&A</a>
+      </div>
+      <p class="footSmall" style="margin-top:10px;">
+        © エンサポ
+      </p>
+    </div>
   </div>
 </footer>
 
